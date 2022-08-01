@@ -89,12 +89,6 @@ class Main extends Sprite
 		#end
 	}
 
-		#if android
-		zoom = 1;
-		gameWidth = 1280;
-		gameHeight = 720;
-		#end//i got your mom in the bed:)
-		
 	var game:FlxGame;
 
 	var fpsCounter:FPS;
