@@ -4,6 +4,7 @@ package;
 //Your Heart Will Stop Beating 9/21/2023
 //With Love -Peppy
 
+import ui.FlxVirtualPad;
 import Options.SpectatorMode;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
