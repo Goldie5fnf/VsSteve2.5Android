@@ -126,7 +126,11 @@ class ExtrasState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
-		
+
+		#if android 
+		addVirtualPad(NONE, A);
+		#end
+
 		super.create();
 	}
 
@@ -168,10 +172,37 @@ class ExtrasState extends MusicBeatState
 		{
 			if(usingMouse)
 			{
+				#if android
+				for (touch in FlxG.touches.list)
+				{
+					if(!touch.overlaps(spr))
+						spr.animation.play('idle');	
+				}
+				#else
 				if(!FlxG.mouse.overlaps(spr))
 					spr.animation.play('idle');
+				#end
 			}
 
+			#if android
+			for (touch in FlxG.touches.list)
+			{
+				if (touch.overlaps(spr))
+				{
+					if(canClick)
+					{
+						curSelected = spr.ID;
+						usingMouse = true;
+						spr.animation.play('selected');
+					}
+
+					if(touch.justPressed && canClick)
+					{
+						selectSomething();
+					}
+				}
+			}
+			#else
 			if (FlxG.mouse.overlaps(spr))
 			{
 				if(canClick)
@@ -186,6 +217,7 @@ class ExtrasState extends MusicBeatState
 					selectSomething();
 				}
 			}
+			#end
 		});
 			
 			if (!selectedSomethin)
