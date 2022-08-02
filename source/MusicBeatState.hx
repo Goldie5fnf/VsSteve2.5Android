@@ -6,6 +6,7 @@ import Discord.DiscordClient;
 import flixel.input.actions.FlxActionInput;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixrl.camera.FlxCamera
 import openfl.Lib;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
@@ -38,6 +39,7 @@ class MusicBeatState extends FlxUIState
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(DPad, Action);
 		_virtualpad.alpha = 0.75;
+                _virtualpad.
 		add(_virtualpad);
 		controls.setVirtualPad(_virtualpad, DPad, Action);
 		trackedinputs = controls.trackedinputs;
@@ -55,6 +57,17 @@ class MusicBeatState extends FlxUIState
 	}
 	#else
 	public function addVirtualPad(?DPad, ?Action){};
+
+        public function addPadCamera()
+	{
+		if (virtualPad != null)
+		{
+			var camControls = new flixel.FlxCamera();
+			FlxG.cameras.add(camControls, false);
+			camControls.bgColor.alpha = 0;
+			virtualPad.cameras = [camControls];
+		}
+	}
 	#end
 
 	override function create()
