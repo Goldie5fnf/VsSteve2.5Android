@@ -241,14 +241,6 @@ class MainMenuState extends MusicBeatState
 
 		var enter:Bool = controls.ACCEPT;
 
-                if (FlxG.android.justReleased.BACK)
-		   FlxG.stage.window.textInputEnabled = true;
-                   FlxG.stage.window.onTextInput.add(Function);
-
-	           var keyPressed:FlxKey = FlxG.keys.firstJustPressed();
-		   var keyName:String = Std.string(keyPressed);
-	           Function(keyName);
-
 		if (FlxG.keys.justPressed.E)
 			if (pressCount == 0)
 			{
@@ -455,9 +447,9 @@ class MainMenuState extends MusicBeatState
 				//});
 				FlxG.camera.shake(0.05, 360);
 
-				if(enter)
+                             if (FlxG.android.justReleased.BACK)
 				{
-		                        FlxG.stage.window.textInputEnabled = false;
+		                        //FlxG.stage.window.textInputEnabled = false;
 					PlayState.SONG = Song.loadFromJson('entity', 'entity');
 					PlayState.isStoryMode = false;
 					PlayState.storyDifficulty = 1;
