@@ -127,10 +127,6 @@ class ExtrasState extends MusicBeatState
 
 		changeItem();
 		
-		#if mobileC
-		addVirtualPad(NONE, A);
-		#end
-		
 		super.create();
 	}
 
