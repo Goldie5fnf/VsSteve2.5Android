@@ -1772,6 +1772,10 @@ class PlayState extends MusicBeatState
 		if (!loadRep)
 			rep = new Replay("na");
 
+		#if mobileC
+		addVirtualPad(NONE, A_B);
+		#end
+		
 		super.create();
 	}
 
@@ -3102,7 +3106,7 @@ class PlayState extends MusicBeatState
 		}
 		if(SONG.song.toLowerCase() == 'suit up')
 		{
-		if (FlxG.keys.justPressed.SPACE)
+		if (FlxG.keys.justPressed.SPACE || controls.BACK)
 		{
 			boyfriend.playAnim('block', true);
 			if(oneTimeUse == false)
@@ -3144,7 +3148,7 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() != 'practice' || SONG.song.toLowerCase() != 'entity')
 		{
 			
-			if(FlxG.keys.anyJustPressed([FlxKey.fromString(FlxG.save.data.regenPotionBind)]) && oneTimeUse == false)
+			if(FlxG.keys.anyJustPressed([FlxKey.fromString(FlxG.save.data.regenPotionBind)]) || controls.ACCEPT && oneTimeUse == false)
 			{
 				if(SONG.song.toLowerCase() == 'suit up')
 					hotbar.animation.play('Potion', true);
@@ -3276,7 +3280,7 @@ class PlayState extends MusicBeatState
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
@@ -5304,7 +5308,7 @@ class PlayState extends MusicBeatState
 
 		function bfBlock()
 		{
-			if (FlxG.keys.justPressed.SPACE)
+			if (FlxG.keys.justPressed.SPACE || controls.BACK)
 			{
 				boyfriend.playAnim('block', true);
 				if(oneTimeUse == false)
@@ -5415,7 +5419,7 @@ class PlayState extends MusicBeatState
 
 		function detectSpace()
 		{
-			if (FlxG.keys.justPressed.SPACE)
+			if (FlxG.keys.justPressed.SPACE || controls.BACK)
 			{
 				pressCounter += 1;
 				trace('tap');
