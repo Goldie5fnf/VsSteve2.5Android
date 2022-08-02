@@ -1773,7 +1773,7 @@ class PlayState extends MusicBeatState
 			rep = new Replay("na");
 
 		#if mobileC
-		camHUD.addVirtualPad(NONE, A_B);
+		camcontrol.addVirtualPad(NONE, A_B);
 		#end
 		
 		super.create();
