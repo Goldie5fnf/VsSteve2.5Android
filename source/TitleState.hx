@@ -341,8 +341,6 @@ class TitleState extends MusicBeatState
 				  trace('error: $error');
 				  FlxG.switchState(new MainMenuState()); // fail but we go anyway
 				}
-				
-				http.request();
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
