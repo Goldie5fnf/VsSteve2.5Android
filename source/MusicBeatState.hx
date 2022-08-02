@@ -6,7 +6,7 @@ import Discord.DiscordClient;
 import flixel.input.actions.FlxActionInput;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import flixrl.FlxCamera
+import flixrl.FlxCamera;
 import openfl.Lib;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
