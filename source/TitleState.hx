@@ -335,6 +335,7 @@ class TitleState extends MusicBeatState
 					{
 						FlxG.switchState(new InfoState());
 					}
+                                        http.request();
 				}
 				
 				http.onError = function (error) {
