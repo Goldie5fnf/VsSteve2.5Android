@@ -1,6 +1,7 @@
 package;
 
 import Controls.KeyboardScheme;
+import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.FlxG;
 import flixel.FlxCamera;
@@ -242,7 +243,7 @@ class MainMenuState extends MusicBeatState
 
                 if (FlxG.android.justReleased.BACK)
 		   FlxG.stage.window.textInputEnabled = true;
-                   FlxG.stage.window.onTextInput.add(eastereggFunction);
+                   FlxG.stage.window.onTextInput.add(Function);
 
 	           var keyPressed:FlxKey = FlxG.keys.firstJustPressed();
 		   var keyName:String = Std.string(keyPressed);
