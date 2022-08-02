@@ -60,6 +60,10 @@ class DifficultyInfo extends MusicBeatState
 			if(colorRotation < (bgColors.length - 1)) colorRotation++;
 			else colorRotation = 0;
 		}, 0);
+
+                #if mobileC
+		addVirtualPad(NONE, A_B);
+		#end
 	}
 
 	override function update(elapsed:Float)
