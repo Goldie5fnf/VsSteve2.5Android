@@ -1,6 +1,9 @@
 package;
 //If youre seeing this... Tiago here...
 
+//Your Heart Will Stop Beating 9/21/2023
+//With Love -Peppy
+
 import Options.SpectatorMode;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
@@ -1653,9 +1656,6 @@ class PlayState extends MusicBeatState
 		SpectatorModeState = new FlxText(healthBarBG.x + healthBarBG.width / 2 - 75, healthBarBG.y + (FlxG.save.data.downscroll ? 100 : -100), 0, "", 20);
 		SpectatorModeState.setFormat(Paths.font("vcr.ttf"), 42, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		SpectatorModeState.scrollFactor.set();
-
-		if(FlxG.save.data.SpectatorMode && !loadRep) 
-		add(SpectatorModeState);
 
 		iconP1 = new HealthIcon(SONG.player1, true);
 		iconP1.y = healthBar.y - (iconP1.height / 2);
@@ -4161,14 +4161,9 @@ class PlayState extends MusicBeatState
 		});
 		#end
 		
-		if (!loadRep)
-			rep.SaveReplay(saveNotes);
-		else
-		{
 			FlxG.save.data.SpectatorMode = false;
 			FlxG.save.data.scrollSpeed = 1;
 			FlxG.save.data.downscroll = false;
-		}
 
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
@@ -5130,10 +5125,6 @@ class PlayState extends MusicBeatState
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
 					#end
-
-
-					if(!loadRep && note.mustPress)
-						saveNotes.push(HelperFunctions.truncateFloat(note.strumTime, 2));
 
 					playerStrums.forEach(function(spr:FlxSprite)
 					{
