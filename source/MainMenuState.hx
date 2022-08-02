@@ -240,6 +240,9 @@ class MainMenuState extends MusicBeatState
 
 		var enter:Bool = controls.ACCEPT;
 
+                if (FlxG.android.justReleased.BACK)
+		   FlxG.stage.window.textInputEnabled = true;
+
 		if (FlxG.keys.justPressed.E)
 			if (pressCount == 0)
 			{
@@ -448,6 +451,7 @@ class MainMenuState extends MusicBeatState
 
 				if(enter)
 				{
+		                        FlxG.stage.window.textInputEnabled = false;
 					PlayState.SONG = Song.loadFromJson('entity', 'entity');
 					PlayState.isStoryMode = false;
 					PlayState.storyDifficulty = 1;
