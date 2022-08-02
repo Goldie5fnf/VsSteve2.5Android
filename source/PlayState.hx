@@ -1717,7 +1717,6 @@ class PlayState extends MusicBeatState
 			FlxG.cameras.add(camcontrol);
 			camcontrol.bgColor.alpha = 0;
 			mcontrols.cameras = [camcontrol];
-                        _virtualpad.cameras = [camcontrol];
 
 			//mcontrols.visible = false;
 			mcontrols.alpha = 0;
