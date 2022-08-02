@@ -502,6 +502,21 @@ class AccuracyDOption extends Option
 	}
 }
 
+class MobileCOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+                FlxG.switchState(new options.CustomControlsState());
+		return true;
+	}
+}
+
 // UNFUNCTIONAL, FIXED LATER!!!
 
 
