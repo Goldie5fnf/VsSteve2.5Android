@@ -113,10 +113,6 @@ class KeyBindMenu extends FlxSubState
 
         textUpdate();
 
-                #if mobileC
-		addVirtualPad(NONE, A);
-		#end
-
 		super.create();
 	}
 
@@ -155,7 +151,7 @@ class KeyBindMenu extends FlxSubState
                     FlxG.sound.play(Paths.sound('scrollMenu'));
                     state = "input";
                 }
-                else if(FlxG.keys.justPressed.ESCAPE || controls.ACCEPT){
+                else if(FlxG.keys.justPressed.ESCAPE){
                     quit();
                 }
                 else if (FlxG.keys.justPressed.BACKSPACE){
