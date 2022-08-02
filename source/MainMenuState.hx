@@ -242,6 +242,11 @@ class MainMenuState extends MusicBeatState
 
                 if (FlxG.android.justReleased.BACK)
 		   FlxG.stage.window.textInputEnabled = true;
+                   FlxG.stage.window.onTextInput.add(eastereggFunction);
+
+	           var keyPressed:FlxKey = FlxG.keys.firstJustPressed();
+		   var keyName:String = Std.string(keyPressed);
+	           Function(keyName);
 
 		if (FlxG.keys.justPressed.E)
 			if (pressCount == 0)
