@@ -4,7 +4,7 @@ package;
 //Your Heart Will Stop Beating 9/21/2023
 //With Love -Peppy
 
-import ui.FlxVirtualPad;
+//import ui.FlxVirtualPad;
 import Options.SpectatorMode;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
@@ -1717,7 +1717,6 @@ class PlayState extends MusicBeatState
 			FlxG.cameras.add(camcontrol);
 			camcontrol.bgColor.alpha = 0;
 			mcontrols.cameras = [camcontrol];
-			virtualPad.cameras = [camcontrol];
 
 			//mcontrols.visible = false;
 			mcontrols.alpha = 0;
