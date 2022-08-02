@@ -434,39 +434,23 @@ class MainMenuState extends MusicBeatState
 						
 				}
 				
-		if (enter && pressCount == 6)
+                if (FlxG.android.justReleased.BACK)
 			{
-				//new FlxTimer().start(0.001, function(tmr:FlxTimer)
-				//{
-				//	pressEnter.alpha += 0.01;
-		//
-				//	if (pressEnter.alpha < 1)
-				//	{
-				//		tmr.reset(0.001);
-				//	}
-				//});
-				FlxG.camera.shake(0.05, 360);
+		                //FlxG.stage.window.textInputEnabled = false;
+				PlayState.SONG = Song.loadFromJson('entity', 'entity');
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = 1;
+				PlayState.storyWeek = 4;
+				FlxG.camera.fade(FlxColor.RED, 0.5, false);
 
-                             if (FlxG.android.justReleased.BACK)
+				//PLAY SPECIAL SOUND
+				//FlxG.sound.play(Paths.sound('confirmMenu'));
+
+				new FlxTimer().start(1.5, function(tmr:FlxTimer)
 				{
-		                        //FlxG.stage.window.textInputEnabled = false;
-					PlayState.SONG = Song.loadFromJson('entity', 'entity');
-					PlayState.isStoryMode = false;
-					PlayState.storyDifficulty = 1;
-					PlayState.storyWeek = 4;
-					FlxG.camera.fade(FlxColor.RED, 0.5, false);
-
-					//PLAY SPECIAL SOUND
-					//FlxG.sound.play(Paths.sound('confirmMenu'));
-
-					new FlxTimer().start(1.5, function(tmr:FlxTimer)
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					});
-				}
-
+					LoadingState.loadAndSwitchState(new PlayState());
+				});
 			}
-
 
 		if (startscroll == true)
 			{
