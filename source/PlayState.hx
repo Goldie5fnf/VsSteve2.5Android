@@ -1686,6 +1686,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		hotbar.cameras = [camHUD];
+                _virtualpad.cameras = [camHUD];
 
 		if(SONG.song.toLowerCase() == 'entity')
 			vignette.cameras = [camHUD];
