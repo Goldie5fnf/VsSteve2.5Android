@@ -1725,7 +1725,7 @@ class PlayState extends MusicBeatState
 
 			add(mcontrols);
 			
-			bobr = new FlxVirtualPad(NONE, A);
+			bobr = new FlxVirtualPad(NONE, A_B);
 			bobr.alpha = 0.75;
 			bobr.cameras = [camcontrol];
 		    add(bobr);
@@ -1781,7 +1781,7 @@ class PlayState extends MusicBeatState
 			rep = new Replay("na");
 
 		#if mobileC
-		addVirtualPad(NONE, A_B);
+		//addVirtualPad(NONE, A_B);
 		#end
 		
 		super.create();
@@ -3114,7 +3114,7 @@ class PlayState extends MusicBeatState
 		}
 		if(SONG.song.toLowerCase() == 'suit up')
 		{
-		if (bobr.buttonA.justPressed)
+		if (bobr.buttonB.justPressed)
 		{
 			boyfriend.playAnim('block', true);
 			if(oneTimeUse == false)
@@ -3156,7 +3156,7 @@ class PlayState extends MusicBeatState
 		if (SONG.song.toLowerCase() != 'practice' || SONG.song.toLowerCase() != 'entity')
 		{
 			
-			if(FlxG.keys.anyJustPressed([FlxKey.fromString(FlxG.save.data.regenPotionBind)]) || controls.ACCEPT && oneTimeUse == false)
+			if(FlxG.keys.anyJustPressed([FlxKey.fromString(FlxG.save.data.regenPotionBind)]) || bobr.buttonA.justPressed && oneTimeUse == false)
 			{
 				if(SONG.song.toLowerCase() == 'suit up')
 					hotbar.animation.play('Potion', true);
@@ -5316,7 +5316,7 @@ class PlayState extends MusicBeatState
 
 		function bfBlock()
 		{
-			if (bobr.buttonA.justPressed)
+			if (bobr.buttonB.justPressed)
 			{
 				boyfriend.playAnim('block', true);
 				if(oneTimeUse == false)
@@ -5427,7 +5427,7 @@ class PlayState extends MusicBeatState
 
 		function detectSpace()
 		{
-			if (bobr.buttonA.justPressed)
+			if (bobr.buttonB.justPressed)
 			{
 				pressCounter += 1;
 				trace('tap');
