@@ -1,24 +1,12 @@
 package;
 
-#if android
-import android.Hardware;
-import android.Permissions;
-import android.PermissionsList;
-import android.os.Build.VERSION;
-import android.os.Environment;
-#end
 import flash.system.System;
 import flixel.FlxG;
-import flixel.util.FlxStringUtil;
 import haxe.CallStack.StackItem;
 import haxe.CallStack;
-import haxe.io.Path;
 import lime.app.Application;
 import openfl.events.UncaughtErrorEvent;
-import openfl.utils.Assets as OpenFlAssets;
 import openfl.Lib;
-import sys.FileSystem;
-import sys.io.File;
 
 /**
  * ...
@@ -51,15 +39,8 @@ class SUtil
 			errMsg += u.error;
 
 			Sys.println(errMsg);
+
 			Application.current.window.alert(errMsg, 'Error!');
-
-			try
-			{}
-			catch (e:Dynamic)
-                                #if android
-				Hardware.toast("Error!\nClouldn't save the crash dump because: " + e, 2);
-                                #end
-
 			System.exit(1);
 		});
 	}
