@@ -91,7 +91,7 @@ class InfoState extends MusicBeatState
 		if (controls.BACK || controls.ACCEPT)
 		{
 			leftState = true;
-			FlxG.switchState(new MainMenuState());
+			FlxG.switchState(new AndroidInfoState());
 		}
 		super.update(elapsed);
 	}
