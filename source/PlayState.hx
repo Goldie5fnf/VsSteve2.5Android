@@ -4,7 +4,7 @@ package;
 //Your Heart Will Stop Beating 9/21/2023
 //With Love -Peppy
 
-//import ui.FlxVirtualPad;
+import ui.FlxVirtualPad;
 import Options.SpectatorMode;
 import flixel.input.keyboard.FlxKey;
 import haxe.Exception;
@@ -235,6 +235,8 @@ class PlayState extends MusicBeatState
 	var bfnoteMovementYoffset:Int = 0;
 
 	var defaultCamZoom:Float = 1.05;
+	
+	var bobr:FlxVirtualPad;
 
 	public static var daPixelZoom:Float = 6;
 
@@ -1722,6 +1724,11 @@ class PlayState extends MusicBeatState
 			mcontrols.alpha = 0;
 
 			add(mcontrols);
+			
+			bobr = new FlxVirtualPad(NONE, A);
+			bobr.alpha = 0.75;
+			bobr.cameras = [camcontrol];
+		    add(bobr);
 		#end
 
 		// if (SONG.song == 'South')
@@ -3107,7 +3114,7 @@ class PlayState extends MusicBeatState
 		}
 		if(SONG.song.toLowerCase() == 'suit up')
 		{
-		if (FlxG.keys.justPressed.SPACE || controls.BACK)
+		if (bobr.buttonA.justPressed)
 		{
 			boyfriend.playAnim('block', true);
 			if(oneTimeUse == false)
@@ -5309,7 +5316,7 @@ class PlayState extends MusicBeatState
 
 		function bfBlock()
 		{
-			if (FlxG.keys.justPressed.SPACE || controls.BACK)
+			if (bobr.buttonA.justPressed)
 			{
 				boyfriend.playAnim('block', true);
 				if(oneTimeUse == false)
@@ -5420,7 +5427,7 @@ class PlayState extends MusicBeatState
 
 		function detectSpace()
 		{
-			if (FlxG.keys.justPressed.SPACE || controls.BACK)
+			if (bobr.buttonA.justPressed)
 			{
 				pressCounter += 1;
 				trace('tap');
