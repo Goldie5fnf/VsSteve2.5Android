@@ -187,7 +187,7 @@ class MainMenuState extends MusicBeatState
 
 		firstStart = false;
 
-		var versionShit:FlxText = new FlxText(5, FlxG.height - 30, 0, gameVer +  (Main.watermarks ? " Minecraft " + kadeEngineVer + " Steve Engine?, Ported by Goldie5" : ""), 20);
+		var versionShit:FlxText = new FlxText(5, FlxG.height - 30, 0, gameVer +  (Main.watermarks ? " Minecraft " + kadeEngineVer + " Steve Engine? (Ported by Goldie5)" : ""), 20);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		versionShit.scrollFactor.set();
